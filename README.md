@@ -2,6 +2,8 @@
 
 It's been about 2 years and the previous version of this document must be out of date. There has been 3 more versions of the API as it currently appears to be Version 5.
 
+I'm slowly making a Swift API framework to help myself learn Swift 2.0 (and maybe write some tests!) with the aim to make a watch app that can show my balances and allow me to transfer "fast cash" from one account to another at the touch of a button. ⌚️💸
+
 This is all accessable by anyone by simply proxying your device through something like Charles Proxy.
 
 I found it interesting that the app adds `rooted` to the user-agent header if you're on a jailbroken device, and even warns you on the device. I didn't need to jailbreak to find this information out.
