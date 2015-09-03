@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE0876EB1B8FF3590004F26B /* ANZGoMoneyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0876EA1B8FF3590004F26B /* ANZGoMoneyAPI.swift */; };
 		BE1175731B8B1395008F5D9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1175721B8B1395008F5D9D /* AppDelegate.swift */; };
 		BE1175751B8B1395008F5D9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1175741B8B1395008F5D9D /* ViewController.swift */; };
 		BE1175781B8B1395008F5D9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE1175761B8B1395008F5D9D /* Main.storyboard */; };
 		BE11757A1B8B1395008F5D9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1175791B8B1395008F5D9D /* Assets.xcassets */; };
 		BE11757D1B8B1395008F5D9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE11757B1B8B1395008F5D9D /* LaunchScreen.storyboard */; };
 		BE1175881B8B1395008F5D9D /* ANZGoMoneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1175871B8B1395008F5D9D /* ANZGoMoneyTests.swift */; };
+		BEEB15111B982BE6008F1D50 /* ANZGoMoneyAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = BEEB15101B982BE6008F1D50 /* ANZGoMoneyAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BEEB15181B982BE6008F1D50 /* ANZGoMoneyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */; };
+		BEEB151F1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB151E1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift */; };
+		BEEB15231B982BE6008F1D50 /* ANZGoMoneyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */; };
+		BEEB15241B982BE6008F1D50 /* ANZGoMoneyAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BEEB152C1B982BF2008F1D50 /* ANZGoMoneyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0876EA1B8FF3590004F26B /* ANZGoMoneyAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,10 +29,45 @@
 			remoteGlobalIDString = BE11756E1B8B1395008F5D9D;
 			remoteInfo = ANZGoMoney;
 		};
+		BEEB15191B982BE6008F1D50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE1175671B8B1395008F5D9D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEEB150D1B982BE6008F1D50;
+			remoteInfo = ANZGoMoneyAPI;
+		};
+		BEEB151B1B982BE6008F1D50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE1175671B8B1395008F5D9D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE11756E1B8B1395008F5D9D;
+			remoteInfo = ANZGoMoney;
+		};
+		BEEB15211B982BE6008F1D50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE1175671B8B1395008F5D9D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEEB150D1B982BE6008F1D50;
+			remoteInfo = ANZGoMoneyAPI;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BEEB152A1B982BE6008F1D50 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BEEB15241B982BE6008F1D50 /* ANZGoMoneyAPI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		BE0876EA1B8FF3590004F26B /* ANZGoMoneyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ANZGoMoneyAPI.swift; sourceTree = "<group>"; };
+		BE0876EA1B8FF3590004F26B /* ANZGoMoneyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANZGoMoneyAPI.swift; path = ../ANZGoMoney/ANZGoMoneyAPI.swift; sourceTree = "<group>"; };
 		BE11756F1B8B1395008F5D9D /* ANZGoMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ANZGoMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1175721B8B1395008F5D9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE1175741B8B1395008F5D9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +78,12 @@
 		BE1175831B8B1395008F5D9D /* ANZGoMoneyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ANZGoMoneyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1175871B8B1395008F5D9D /* ANZGoMoneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANZGoMoneyTests.swift; sourceTree = "<group>"; };
 		BE1175891B8B1395008F5D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ANZGoMoneyAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEEB15101B982BE6008F1D50 /* ANZGoMoneyAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANZGoMoneyAPI.h; sourceTree = "<group>"; };
+		BEEB15121B982BE6008F1D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEEB15171B982BE6008F1D50 /* ANZGoMoneyAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ANZGoMoneyAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEEB151E1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANZGoMoneyAPITests.swift; sourceTree = "<group>"; };
+		BEEB15201B982BE6008F1D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEEB15231B982BE6008F1D50 /* ANZGoMoneyAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +99,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEEB150A1B982BE6008F1D50 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEEB15141B982BE6008F1D50 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEEB15181B982BE6008F1D50 /* ANZGoMoneyAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +125,8 @@
 			children = (
 				BE1175711B8B1395008F5D9D /* ANZGoMoney */,
 				BE1175861B8B1395008F5D9D /* ANZGoMoneyTests */,
+				BEEB150F1B982BE6008F1D50 /* ANZGoMoneyAPI */,
+				BEEB151D1B982BE6008F1D50 /* ANZGoMoneyAPITests */,
 				BE1175701B8B1395008F5D9D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +136,8 @@
 			children = (
 				BE11756F1B8B1395008F5D9D /* ANZGoMoney.app */,
 				BE1175831B8B1395008F5D9D /* ANZGoMoneyTests.xctest */,
+				BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */,
+				BEEB15171B982BE6008F1D50 /* ANZGoMoneyAPITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,7 +145,6 @@
 		BE1175711B8B1395008F5D9D /* ANZGoMoney */ = {
 			isa = PBXGroup;
 			children = (
-				BE0876EA1B8FF3590004F26B /* ANZGoMoneyAPI.swift */,
 				BE1175721B8B1395008F5D9D /* AppDelegate.swift */,
 				BE1175741B8B1395008F5D9D /* ViewController.swift */,
 				BE1175761B8B1395008F5D9D /* Main.storyboard */,
@@ -99,7 +164,37 @@
 			path = ANZGoMoneyTests;
 			sourceTree = "<group>";
 		};
+		BEEB150F1B982BE6008F1D50 /* ANZGoMoneyAPI */ = {
+			isa = PBXGroup;
+			children = (
+				BE0876EA1B8FF3590004F26B /* ANZGoMoneyAPI.swift */,
+				BEEB15101B982BE6008F1D50 /* ANZGoMoneyAPI.h */,
+				BEEB15121B982BE6008F1D50 /* Info.plist */,
+			);
+			path = ANZGoMoneyAPI;
+			sourceTree = "<group>";
+		};
+		BEEB151D1B982BE6008F1D50 /* ANZGoMoneyAPITests */ = {
+			isa = PBXGroup;
+			children = (
+				BEEB151E1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift */,
+				BEEB15201B982BE6008F1D50 /* Info.plist */,
+			);
+			path = ANZGoMoneyAPITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BEEB150B1B982BE6008F1D50 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEEB15111B982BE6008F1D50 /* ANZGoMoneyAPI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		BE11756E1B8B1395008F5D9D /* ANZGoMoney */ = {
@@ -109,10 +204,12 @@
 				BE11756B1B8B1395008F5D9D /* Sources */,
 				BE11756C1B8B1395008F5D9D /* Frameworks */,
 				BE11756D1B8B1395008F5D9D /* Resources */,
+				BEEB152A1B982BE6008F1D50 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BEEB15221B982BE6008F1D50 /* PBXTargetDependency */,
 			);
 			name = ANZGoMoney;
 			productName = ANZGoMoney;
@@ -137,6 +234,43 @@
 			productReference = BE1175831B8B1395008F5D9D /* ANZGoMoneyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		BEEB150D1B982BE6008F1D50 /* ANZGoMoneyAPI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEEB15291B982BE6008F1D50 /* Build configuration list for PBXNativeTarget "ANZGoMoneyAPI" */;
+			buildPhases = (
+				BEEB15091B982BE6008F1D50 /* Sources */,
+				BEEB150A1B982BE6008F1D50 /* Frameworks */,
+				BEEB150B1B982BE6008F1D50 /* Headers */,
+				BEEB150C1B982BE6008F1D50 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ANZGoMoneyAPI;
+			productName = ANZGoMoneyAPI;
+			productReference = BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BEEB15161B982BE6008F1D50 /* ANZGoMoneyAPITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEEB152B1B982BE6008F1D50 /* Build configuration list for PBXNativeTarget "ANZGoMoneyAPITests" */;
+			buildPhases = (
+				BEEB15131B982BE6008F1D50 /* Sources */,
+				BEEB15141B982BE6008F1D50 /* Frameworks */,
+				BEEB15151B982BE6008F1D50 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEEB151A1B982BE6008F1D50 /* PBXTargetDependency */,
+				BEEB151C1B982BE6008F1D50 /* PBXTargetDependency */,
+			);
+			name = ANZGoMoneyAPITests;
+			productName = ANZGoMoneyAPITests;
+			productReference = BEEB15171B982BE6008F1D50 /* ANZGoMoneyAPITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -150,6 +284,13 @@
 						CreatedOnToolsVersion = 7.0;
 					};
 					BE1175821B8B1395008F5D9D = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = BE11756E1B8B1395008F5D9D;
+					};
+					BEEB150D1B982BE6008F1D50 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					BEEB15161B982BE6008F1D50 = {
 						CreatedOnToolsVersion = 7.0;
 						TestTargetID = BE11756E1B8B1395008F5D9D;
 					};
@@ -170,6 +311,8 @@
 			targets = (
 				BE11756E1B8B1395008F5D9D /* ANZGoMoney */,
 				BE1175821B8B1395008F5D9D /* ANZGoMoneyTests */,
+				BEEB150D1B982BE6008F1D50 /* ANZGoMoneyAPI */,
+				BEEB15161B982BE6008F1D50 /* ANZGoMoneyAPITests */,
 			);
 		};
 /* End PBXProject section */
@@ -192,6 +335,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BEEB150C1B982BE6008F1D50 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEEB15151B982BE6008F1D50 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -201,7 +358,6 @@
 			files = (
 				BE1175751B8B1395008F5D9D /* ViewController.swift in Sources */,
 				BE1175731B8B1395008F5D9D /* AppDelegate.swift in Sources */,
-				BE0876EB1B8FF3590004F26B /* ANZGoMoneyAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +369,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BEEB15091B982BE6008F1D50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEEB152C1B982BF2008F1D50 /* ANZGoMoneyAPI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEEB15131B982BE6008F1D50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEEB151F1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -220,6 +392,21 @@
 			isa = PBXTargetDependency;
 			target = BE11756E1B8B1395008F5D9D /* ANZGoMoney */;
 			targetProxy = BE1175841B8B1395008F5D9D /* PBXContainerItemProxy */;
+		};
+		BEEB151A1B982BE6008F1D50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEEB150D1B982BE6008F1D50 /* ANZGoMoneyAPI */;
+			targetProxy = BEEB15191B982BE6008F1D50 /* PBXContainerItemProxy */;
+		};
+		BEEB151C1B982BE6008F1D50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE11756E1B8B1395008F5D9D /* ANZGoMoney */;
+			targetProxy = BEEB151B1B982BE6008F1D50 /* PBXContainerItemProxy */;
+		};
+		BEEB15221B982BE6008F1D50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEEB150D1B982BE6008F1D50 /* ANZGoMoneyAPI */;
+			targetProxy = BEEB15211B982BE6008F1D50 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -328,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ANZGoMoney/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wtsnz.ANZGoMoney;
@@ -339,6 +527,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ANZGoMoney/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wtsnz.ANZGoMoney;
@@ -365,6 +554,68 @@
 				INFOPLIST_FILE = ANZGoMoneyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wtsnz.ANZGoMoneyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ANZGoMoney.app/ANZGoMoney";
+			};
+			name = Release;
+		};
+		BEEB15251B982BE6008F1D50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ANZGoMoneyAPI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wtsnz.ANZGoMoneyAPI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BEEB15261B982BE6008F1D50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ANZGoMoneyAPI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wtsnz.ANZGoMoneyAPI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BEEB15271B982BE6008F1D50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ANZGoMoneyAPITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wtsnz.ANZGoMoneyAPITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ANZGoMoney.app/ANZGoMoney";
+			};
+			name = Debug;
+		};
+		BEEB15281B982BE6008F1D50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ANZGoMoneyAPITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wtsnz.ANZGoMoneyAPITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ANZGoMoney.app/ANZGoMoney";
 			};
@@ -399,6 +650,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		BEEB15291B982BE6008F1D50 /* Build configuration list for PBXNativeTarget "ANZGoMoneyAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEEB15251B982BE6008F1D50 /* Debug */,
+				BEEB15261B982BE6008F1D50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BEEB152B1B982BE6008F1D50 /* Build configuration list for PBXNativeTarget "ANZGoMoneyAPITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEEB15271B982BE6008F1D50 /* Debug */,
+				BEEB15281B982BE6008F1D50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
