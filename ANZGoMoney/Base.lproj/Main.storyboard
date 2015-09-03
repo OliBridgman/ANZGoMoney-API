@@ -16,21 +16,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8P-dN-0I6">
-                                <rect key="frame" x="46" y="28" width="46" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lfl-Na-FtP">
+                                <rect key="frame" x="40" y="13" width="97" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iF5-Ag-fLV">
+                                <rect key="frame" x="40" y="60" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WS8-jY-cX9">
+                                <rect key="frame" x="46" y="231" width="174" height="30"/>
+                                <animations/>
+                                <state key="normal" title="fetch accounts"/>
+                                <connections>
+                                    <action selector="fetchAccountButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jss-xg-Yfc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3s-pT-vpD">
+                                <rect key="frame" x="159" y="135" width="69" height="30"/>
+                                <animations/>
+                                <state key="normal" title="create pin"/>
+                                <connections>
+                                    <action selector="createPinTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="44l-7f-whY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8P-dN-0I6">
+                                <rect key="frame" x="40" y="111" width="38" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="touchedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YZK-Rg-zdS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNU-kx-PA4">
+                                <rect key="frame" x="40" y="193" width="180" height="30"/>
+                                <animations/>
+                                <state key="normal" title="2. Confirm One Time code"/>
+                                <connections>
+                                    <action selector="touchedOneTimeCode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NON-Ax-bYW"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hrb-fh-vsx">
+                                <rect key="frame" x="40" y="155" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="authCodeTextField" destination="hrb-fh-vsx" id="knJ-mO-05P"/>
+                        <outlet property="passwordTextField" destination="iF5-Ag-fLV" id="PWM-in-0va"/>
+                        <outlet property="usernameTextField" destination="Lfl-Na-FtP" id="ipI-zc-pxc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="217" y="286"/>
         </scene>
     </scenes>
 </document>

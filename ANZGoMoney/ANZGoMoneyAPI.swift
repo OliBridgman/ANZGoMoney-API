@@ -16,11 +16,15 @@ public struct ANZGoMoneyAPI {
     
     public enum APIError: ErrorType {
         case Unknown
+        case HTTPError(code: Int)                       // Unknown http error
         case InvalidResponse
-        case LoginDenied
+        case LoginDenied                                // "loginDenied"
+        case AuthCodeSent(oneTimePassword: String)      // "authCodeSent"
+        case InvalidAuthCode                            // "invalidAuthCode"
+        
     }
     
-    public enum RequestResponse {
+    public enum APIResponse {
         case Failed(APIError, AnyObject?)
         case Success(response: AnyObject)
     }
@@ -51,16 +55,52 @@ public struct ANZGoMoneyAPI {
     
     // MARK: - Functions
     
-    private func sendRequest(path: String, method: String = "POST", payload: JSONDictionary, completion: ((response: RequestResponse) -> ())? = nil) {
+    private func parseAPIErrorFromResponse(response: NSHTTPURLResponse, jsonDictionary: JSONDictionary) -> APIError? {
+        
+        if case (200...299) = response.statusCode {
+            return nil
+        }
+        
+        guard let code = jsonDictionary["code"] as? String else {
+            return .HTTPError(code: response.statusCode)
+        }
+        
+        switch code {
+        case "loginDenied":
+            return .LoginDenied
+        case "authCodeSent":
+            if let errorParameters = jsonDictionary["errorParameters"] as? [String: AnyObject],
+                let oneTimePassword = errorParameters["oneTimePassword"] as? String {
+                    return .AuthCodeSent(oneTimePassword: oneTimePassword)
+            }
+        case "invalidAuthCode":
+            return .InvalidAuthCode
+        default:
+            return .Unknown
+        }
+        
+        return .Unknown
+        
+    }
+    
+    private func sendRequest(path: String, method: String = "POST", payload: JSONDictionary? = nil, completion: ((response: APIResponse) -> ())? = nil) {
         
         do {
-            let json = try NSJSONSerialization.dataWithJSONObject(payload, options: [])
             
+            var json: NSData? = nil
+            
+            if let payload = payload {
+                json = try NSJSONSerialization.dataWithJSONObject(payload, options: [])
+            }
+        
             if let url = NSURL(string: "\(endpoint)\(path)") {
                 
                 let request = NSMutableURLRequest(URL: url)
                 
-                request.HTTPBody = json;
+                if json != nil {
+                    request.HTTPBody = json;
+                }
+                
                 request.HTTPMethod = method
                 request.allHTTPHeaderFields = [
                     "Api-Key": APIKey,
@@ -71,52 +111,33 @@ public struct ANZGoMoneyAPI {
                 
                 let task = URLSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
                     
-                    if error != nil {
-                        completion?(response: .Failed(.Unknown, nil))
-                        return
-                    }
-                    
-                    guard let response = response as? NSHTTPURLResponse, let data = data else {
-                        completion?(response: .Failed(.InvalidResponse, nil))
-                        return
-                    }
-                    
                     do {
+                        if error != nil {
+                            completion?(response: .Failed(.Unknown, nil))
+                            return
+                        }
+                        
+                        guard let response = response as? NSHTTPURLResponse, let data = data else {
+                            completion?(response: .Failed(.InvalidResponse, nil))
+                            return
+                        }
                         
                         guard let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? Dictionary<String, AnyObject> else {
                             completion?(response: .Failed(.InvalidResponse, nil))
                             return;
                         }
                         
-                        print(jsonDictionary)
-                        
-                        if response.statusCode != 200 {
-                            
-                            // There is an error of some sort
-                            // The API is nice enough to have a dev description and a "code" which
-                            // appears to tell clients what action to take.
-                            
-                            guard let code = jsonDictionary["code"] as? String, let devDescription = jsonDictionary["devDescription"] as? String else {
-                                completion?(response: .Failed(.Unknown, nil))
-                                return
-                            }
-                            
-                            print("Code: \(code) & dev: \(devDescription)")
-                            completion?(response: .Failed(.LoginDenied, jsonDictionary))
-                            return
-                            
+                        if let error = self.parseAPIErrorFromResponse(response, jsonDictionary: jsonDictionary) {
+                            completion?(response: .Failed(error, nil))
                         }
-                        
-                        // Completion Handler
                         
                         completion?(response: .Success(response: jsonDictionary))
                         return
-                        
-                    } catch {
-                        completion?(response: .Failed(.InvalidResponse, nil))
+                    }
+                    catch {
+                        completion?(response: .Failed(.Unknown, nil))
                         return
                     }
-                    
                     
                 })
                 
@@ -137,7 +158,7 @@ public struct ANZGoMoneyAPI {
         
     }
     
-    public func authenticate(user: String, password: String, completion: Completion? = nil) {
+    public func authenticate(user: String, password: String, completion: ((response: APIResponse) -> ())? = nil) {
         
         let payload: JSONDictionary = [
             "userId": user,
@@ -152,6 +173,110 @@ public struct ANZGoMoneyAPI {
             case .Success(let response):
                 print(response)
             }
+            
+            completion?(response: response)
+        }
+    }
+    
+    public func authenticate(user: String, oneTimePassword: String, authCode: String, completion: ((response: APIResponse) -> ())? = nil) {
+        
+        let payload: JSONDictionary = [
+            "userId": user,
+            "oneTimePassword": oneTimePassword,
+            "authCode": authCode
+        ]
+        
+        self.sendRequest("u/sessions", payload: payload) { (response) -> () in
+            
+            switch response {
+            case .Failed(let reason):
+                print("Request Failed. Reason: \(reason)")
+            case .Success(let response):
+                print(response)
+            }
+            
+            completion?(response: response)
+            
+        }
+    }
+    
+    public func authenticate(deviceToken: String, pin: String, completion: ((response: APIResponse) -> ())? = nil) {
+        
+        let payload: JSONDictionary = [
+            "deviceToken": deviceToken,
+            "pin": pin
+        ]
+        
+        self.sendRequest("u/sessions", payload: payload) { (response) -> () in
+            
+            switch response {
+            case .Failed(let reason):
+                print("Request Failed. Reason: \(reason)")
+            case .Success(let response):
+                print(response)
+            }
+            
+            completion?(response: response)
+            
+        }
+    }
+    
+    public func verifyPin(pin: String, deviceDescription: String, completion: ((response: APIResponse) -> ())? = nil) {
+        
+        let payload: JSONDictionary = [
+            "pin": pin,
+            "newDevice": [
+                "description": deviceDescription
+            ]
+        ]
+        
+        self.sendRequest("s/pins/verify", payload: payload) { (response) -> () in
+            
+            switch response {
+            case .Failed(let reason):
+                print("Request Failed. Reason: \(reason)")
+            case .Success(let response):
+                print(response)
+            }
+            
+            completion?(response: response)
+            
+        }
+    }
+    
+    public func createPin(pin: String, deviceToken: String, completion: ((response: APIResponse) -> ())? = nil) {
+        
+        let payload: JSONDictionary = [
+            "pin": pin,
+            "deviceToken": deviceToken
+        ]
+        
+        self.sendRequest("s/pins/reset", payload: payload) { (response) -> () in
+            
+            switch response {
+            case .Failed(let reason):
+                print("Request Failed. Reason: \(reason)")
+            case .Success(let response):
+                print(response)
+            }
+            
+            completion?(response: response)
+            
+        }
+    }
+    
+    public func fetchAccounts(completion: ((response: APIResponse) -> ())? = nil) {
+        
+        self.sendRequest("s/accounts", method: "GET") { (response) -> () in
+            
+            switch response {
+            case .Failed(let reason):
+                print("Request Failed. Reason: \(reason)")
+            case .Success(let response):
+                print(response)
+            }
+            
+            completion?(response: response)
             
         }
     }

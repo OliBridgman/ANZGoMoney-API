@@ -86,10 +86,9 @@ I've started to compile a list of error codes
 | ---------- | ---- | ----------- |
 | loginDenied | 401 | The user cannot log in - e.g. credentials were incorrect, account is locked, etc |
 | authCodeSent | 400 | The Auth Code has been sent to the client, please send the request with this code. |
-| E884125 | 403 | null |
 | tooManySessions | 403 | The user already has more than the maximum allowed number of sessions |
 | E111898 | 401 | null |
-
+| E884125 | 403 | null |
 
 ## Calls
 ### Login using userId and password
