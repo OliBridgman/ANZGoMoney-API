@@ -8,28 +8,30 @@
 
 import UIKit
 import ANZGoMoneyAPI
+import KeychainAccess
 
 class ViewController: UIViewController {
     
+    let keychain = Keychain(service: "com.uo.anzgomoney")
+    
     var oneTimePassword: String = ""
+    var ibSessionId: String = ""
+    
+    let api = ANZGoMoneyAPI()
     
     @IBAction func createPinTouched(sender: AnyObject) {
         
-        let api = ANZGoMoneyAPI()
-        
-        api.createPin("3320", deviceToken: "4ec2b98f-62ab-40ab-bb3e-d4ca88c1507e") { (response) -> () in
+        api.verifyPin(Private.passcode, deviceDescription: "[iPhone5,2]") { (response) -> () in
+            
+            // Parse the deviceToken + Key
+            
+            
             print(response)
         }
-        
-//        api.verifyPin("1234", deviceDescription: "test device") { (response) -> () in
-//            print(response)
-//        }
         
     }
     
     @IBAction func fetchAccountButtonTouched(sender: AnyObject) {
-        
-        let api = ANZGoMoneyAPI()
         
         api.fetchAccounts { (response) -> () in
             print(response)
@@ -46,7 +48,6 @@ class ViewController: UIViewController {
     
     @IBAction func touchedButton(sender: AnyObject) {
         
-        let api = ANZGoMoneyAPI()
         
         api.authenticate(usernameTextField.text!, password: passwordTextField.text!) { (response) -> () in
             
@@ -71,7 +72,6 @@ class ViewController: UIViewController {
     
     @IBAction func touchedOneTimeCode(sender: AnyObject) {
         
-        let api = ANZGoMoneyAPI()
         api.authenticate(self.usernameTextField.text!, oneTimePassword: self.oneTimePassword, authCode: self.authCodeTextField.text!)  { (response) -> () in
             
             switch (response) {
@@ -79,7 +79,14 @@ class ViewController: UIViewController {
                 print(error)
                 print(responseObject)
             case .Success(let responseObject):
-                print(responseObject)
+//                print(responseObject)
+                
+                if let sessionId = responseObject["ibSessionId"] {
+                    print("FOUND sessionId \(sessionId)")
+                    self.ibSessionId = sessionId as! String
+                    self.api.ibSessionId = self.ibSessionId
+                }
+                
             }
             
         }
@@ -89,12 +96,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        self.usernameTextField.text = Private.username
+        self.passwordTextField.text = Private.password
+        
     }
     
 }

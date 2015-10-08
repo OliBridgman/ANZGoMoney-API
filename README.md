@@ -4,13 +4,26 @@ It's been about 2 years and the previous version of this document must be out of
 
 I'm slowly making a Swift API framework to help myself learn Swift 2.0 (and maybe write some tests!) with the aim to make a watch app that can show my balances and allow me to transfer "fast cash" from one account to another at the touch of a button. ⌚️💸
 
+## Note to ANZ
+You should *really* make a public API that people can consume.
+
+Currently no NZ bank do this and it'll really be a way for you to differentiate yourselves. People could come up with all sorts of awesome things which strengthens you as a choice of bank!
+
+[DO IT](https://www.youtube.com/watch?v=ZXsQAXx_ao0) (In the nicest way possible)
+
+## Build
+
+Clone the repository, then run `pod install`, opening the generated Xcode workspace.
+
+Rename the Private.swift.template to Private.swift and fill in with your details (for now). This file has been gitignored to ensure I don't leak my details out.
+
+## Base URL
+
 This is all accessable by anyone by simply proxying your device through something like Charles Proxy.
 
 I found it interesting that the app adds `rooted` to the user-agent header if you're on a jailbroken device, and even warns you on the device. I didn't need to jailbreak to find this information out.
 
 Everything seems to be `Content-Type: application/json`
-
-## Base URL
 
 `https://secure.anz.co.nz/api/v5`
 

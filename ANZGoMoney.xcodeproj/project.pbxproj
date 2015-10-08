@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F4EBE7D1D06DD87DBFAE6F8 /* Pods_ANZGoMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD245DF13FA17666F8D77135 /* Pods_ANZGoMoney.framework */; };
 		BE1175731B8B1395008F5D9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1175721B8B1395008F5D9D /* AppDelegate.swift */; };
 		BE1175751B8B1395008F5D9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1175741B8B1395008F5D9D /* ViewController.swift */; };
 		BE1175781B8B1395008F5D9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE1175761B8B1395008F5D9D /* Main.storyboard */; };
 		BE11757A1B8B1395008F5D9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1175791B8B1395008F5D9D /* Assets.xcassets */; };
 		BE11757D1B8B1395008F5D9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE11757B1B8B1395008F5D9D /* LaunchScreen.storyboard */; };
 		BE1175881B8B1395008F5D9D /* ANZGoMoneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1175871B8B1395008F5D9D /* ANZGoMoneyTests.swift */; };
+		BE17E4781BC66A520015B8D6 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E4771BC66A520015B8D6 /* Private.swift */; settings = {ASSET_TAGS = (); }; };
 		BEEB15111B982BE6008F1D50 /* ANZGoMoneyAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = BEEB15101B982BE6008F1D50 /* ANZGoMoneyAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BEEB15181B982BE6008F1D50 /* ANZGoMoneyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */; };
 		BEEB151F1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB151E1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift */; };
@@ -67,6 +69,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8F0A759B69C12277E713B0FE /* Pods-ANZGoMoney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANZGoMoney.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ANZGoMoney/Pods-ANZGoMoney.debug.xcconfig"; sourceTree = "<group>"; };
+		B1B8F2A0B06DE1B1EA8A5ECC /* Pods-ANZGoMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANZGoMoney.release.xcconfig"; path = "Pods/Target Support Files/Pods-ANZGoMoney/Pods-ANZGoMoney.release.xcconfig"; sourceTree = "<group>"; };
 		BE0876EA1B8FF3590004F26B /* ANZGoMoneyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANZGoMoneyAPI.swift; path = ../ANZGoMoney/ANZGoMoneyAPI.swift; sourceTree = "<group>"; };
 		BE11756F1B8B1395008F5D9D /* ANZGoMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ANZGoMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1175721B8B1395008F5D9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,12 +82,14 @@
 		BE1175831B8B1395008F5D9D /* ANZGoMoneyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ANZGoMoneyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1175871B8B1395008F5D9D /* ANZGoMoneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANZGoMoneyTests.swift; sourceTree = "<group>"; };
 		BE1175891B8B1395008F5D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE17E4771BC66A520015B8D6 /* Private.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
 		BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ANZGoMoneyAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEB15101B982BE6008F1D50 /* ANZGoMoneyAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANZGoMoneyAPI.h; sourceTree = "<group>"; };
 		BEEB15121B982BE6008F1D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEEB15171B982BE6008F1D50 /* ANZGoMoneyAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ANZGoMoneyAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEB151E1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANZGoMoneyAPITests.swift; sourceTree = "<group>"; };
 		BEEB15201B982BE6008F1D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD245DF13FA17666F8D77135 /* Pods_ANZGoMoney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ANZGoMoney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEEB15231B982BE6008F1D50 /* ANZGoMoneyAPI.framework in Frameworks */,
+				6F4EBE7D1D06DD87DBFAE6F8 /* Pods_ANZGoMoney.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +135,8 @@
 				BEEB150F1B982BE6008F1D50 /* ANZGoMoneyAPI */,
 				BEEB151D1B982BE6008F1D50 /* ANZGoMoneyAPITests */,
 				BE1175701B8B1395008F5D9D /* Products */,
+				FA17F724925CFAD0B641A10E /* Pods */,
+				DA8A173F19DA28420CDCC39D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,6 +154,7 @@
 		BE1175711B8B1395008F5D9D /* ANZGoMoney */ = {
 			isa = PBXGroup;
 			children = (
+				BE17E4771BC66A520015B8D6 /* Private.swift */,
 				BE1175721B8B1395008F5D9D /* AppDelegate.swift */,
 				BE1175741B8B1395008F5D9D /* ViewController.swift */,
 				BE1175761B8B1395008F5D9D /* Main.storyboard */,
@@ -183,6 +193,23 @@
 			path = ANZGoMoneyAPITests;
 			sourceTree = "<group>";
 		};
+		DA8A173F19DA28420CDCC39D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD245DF13FA17666F8D77135 /* Pods_ANZGoMoney.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA17F724925CFAD0B641A10E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F0A759B69C12277E713B0FE /* Pods-ANZGoMoney.debug.xcconfig */,
+				B1B8F2A0B06DE1B1EA8A5ECC /* Pods-ANZGoMoney.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -201,10 +228,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE11758C1B8B1395008F5D9D /* Build configuration list for PBXNativeTarget "ANZGoMoney" */;
 			buildPhases = (
+				C896425477C8F2393F03E781 /* Check Pods Manifest.lock */,
 				BE11756B1B8B1395008F5D9D /* Sources */,
 				BE11756C1B8B1395008F5D9D /* Frameworks */,
 				BE11756D1B8B1395008F5D9D /* Resources */,
 				BEEB152A1B982BE6008F1D50 /* Embed Frameworks */,
+				8490EACEFB12DA8C398F1E4B /* Embed Pods Frameworks */,
+				D78E20859B563F4D8B85635F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -351,6 +381,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8490EACEFB12DA8C398F1E4B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ANZGoMoney/Pods-ANZGoMoney-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C896425477C8F2393F03E781 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D78E20859B563F4D8B85635F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ANZGoMoney/Pods-ANZGoMoney-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE11756B1B8B1395008F5D9D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -358,6 +436,7 @@
 			files = (
 				BE1175751B8B1395008F5D9D /* ViewController.swift in Sources */,
 				BE1175731B8B1395008F5D9D /* AppDelegate.swift in Sources */,
+				BE17E4781BC66A520015B8D6 /* Private.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +592,7 @@
 		};
 		BE11758D1B8B1395008F5D9D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F0A759B69C12277E713B0FE /* Pods-ANZGoMoney.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -525,6 +605,7 @@
 		};
 		BE11758E1B8B1395008F5D9D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1B8F2A0B06DE1B1EA8A5ECC /* Pods-ANZGoMoney.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -658,6 +739,7 @@
 				BEEB15261B982BE6008F1D50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BEEB152B1B982BE6008F1D50 /* Build configuration list for PBXNativeTarget "ANZGoMoneyAPITests" */ = {
 			isa = XCConfigurationList;
@@ -666,6 +748,7 @@
 				BEEB15281B982BE6008F1D50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

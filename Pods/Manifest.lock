@@ -1,0 +1,10 @@
+PODS:
+  - KeychainAccess (2.0.1)
+
+DEPENDENCIES:
+  - KeychainAccess
+
+SPEC CHECKSUMS:
+  KeychainAccess: 4f43261905701098847f6995a2de3fe8b90284df
+
+COCOAPODS: 0.39.0.rc.1

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ANZGoMoneyAPI {
+public class ANZGoMoneyAPI {
     
     // MARK: - Types
     
@@ -33,24 +33,36 @@ public struct ANZGoMoneyAPI {
     
     // MARK: - Properties
     
-    private let APIKey = "9b415be2-1a04-493c-b0e7-7895c6242698"
-    private var token: String
-    private var URLSession: NSURLSession
+    private let APIKey: String
+    
+    public var ibSessionId: String? = nil
+    
+    private lazy var urlSession: NSURLSession = {
+        let urlSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        urlSessionConfiguration.HTTPAdditionalHeaders = ["Accept": "application/json"]
+        urlSessionConfiguration.HTTPCookieStorage = NSHTTPCookieStorage()
+        let urlSession = NSURLSession(configuration: urlSessionConfiguration)
+        return urlSession
+    }()
+    
     private let endpoint = "https://secure.anz.co.nz/api/v5/"
     
-    //    private var defaultProperties: [String: AnyObject] {
-    //        let properties: [String: AnyObject] = [
-    //            ""Content-Type": "application/json"
-    //        ]
-    //
-    //        return properties
-    //    }
+    private var headers: [String: AnyObject] {
+        get {
+            return [
+                "Api-Key": self.APIKey,
+                "Content-Type": "application/json",
+                "User-Agent": "goMoney NZ/4.6.0/Wifi/iPhone7,2/9.0/",
+                "Api-Request-Id": NSUUID().UUIDString
+            ]
+        }
+    }
     
     // MARK: - Initializers
     
-    public init(token: String = "", identifier: String? = nil, URLSession: NSURLSession = NSURLSession.sharedSession()) {
-        self.token = token
-        self.URLSession = URLSession
+    public init(APIKey: String = "19a20168-a831-4bae-bde3-7c5955ce816c", URLSession: NSURLSession = NSURLSession.sharedSession()) {
+        self.APIKey = APIKey
+        self.urlSession = URLSession
     }
     
     // MARK: - Functions
@@ -102,14 +114,25 @@ public struct ANZGoMoneyAPI {
                 }
                 
                 request.HTTPMethod = method
-                request.allHTTPHeaderFields = [
+                
+                var httpHeaders = [
                     "Api-Key": APIKey,
                     "Content-Type": "application/json",
                     "User-Agent": "goMoney NZ/4.6.0/Wifi/iPhone7,2/9.0/",
                     "Api-Request-Id": NSUUID().UUIDString
                 ]
                 
-                let task = URLSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                if let ibSessionId = self.ibSessionId {
+                    print("SessionID: \(self.ibSessionId)")
+                    httpHeaders.updateValue(ibSessionId, forKey: "IB-Session-ID")
+                    print("New Headers: \(httpHeaders)")
+                } else {
+                    print("NO SESSION ID SET")
+                }
+                
+                request.allHTTPHeaderFields = httpHeaders
+                
+                let task = urlSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
                     
                     do {
                         if error != nil {
@@ -129,6 +152,13 @@ public struct ANZGoMoneyAPI {
                         
                         if let error = self.parseAPIErrorFromResponse(response, jsonDictionary: jsonDictionary) {
                             completion?(response: .Failed(error, nil))
+                        }
+                        
+                        // Hijack session id if possible
+                        
+                        if let ibSessionId = jsonDictionary["ibSessionId"] as? String {
+                            self.ibSessionId = ibSessionId
+                            print("Setting Sessions id: \(ibSessionId)")
                         }
                         
                         completion?(response: .Success(response: jsonDictionary))
