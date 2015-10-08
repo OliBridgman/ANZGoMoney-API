@@ -16,6 +16,16 @@
 		BE1175881B8B1395008F5D9D /* ANZGoMoneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1175871B8B1395008F5D9D /* ANZGoMoneyTests.swift */; };
 		BE17E4781BC66A520015B8D6 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E4771BC66A520015B8D6 /* Private.swift */; settings = {ASSET_TAGS = (); }; };
 		BE17E47A1BC6715C0015B8D6 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E4791BC6715C0015B8D6 /* DeviceManager.swift */; settings = {ASSET_TAGS = (); }; };
+		BE17E47E1BC679940015B8D6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E47D1BC679940015B8D6 /* LoginViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		BE17E4801BC6799C0015B8D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E47F1BC6799C0015B8D6 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BE17E4821BC67A150015B8D6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE17E4811BC67A150015B8D6 /* LoginViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		BE17E4851BC67F950015B8D6 /* UIKitRACExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E4841BC67F950015B8D6 /* UIKitRACExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		BE17E4871BC67FC50015B8D6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E4861BC67FC50015B8D6 /* ViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		BE17E48A1BC680400015B8D6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E4891BC680400015B8D6 /* Router.swift */; settings = {ASSET_TAGS = (); }; };
+		BE17E48C1BC6806F0015B8D6 /* RouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E48B1BC6806F0015B8D6 /* RouterViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BE17E48E1BC6828B0015B8D6 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E48D1BC6828B0015B8D6 /* AccountsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BE17E4901BC682940015B8D6 /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E48F1BC682940015B8D6 /* AccountsViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		BE17E4921BC682C20015B8D6 /* AccountsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE17E4911BC682C20015B8D6 /* AccountsViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		BEEB15111B982BE6008F1D50 /* ANZGoMoneyAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = BEEB15101B982BE6008F1D50 /* ANZGoMoneyAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BEEB15181B982BE6008F1D50 /* ANZGoMoneyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */; };
 		BEEB151F1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB151E1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift */; };
@@ -85,6 +95,16 @@
 		BE1175891B8B1395008F5D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE17E4771BC66A520015B8D6 /* Private.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
 		BE17E4791BC6715C0015B8D6 /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
+		BE17E47D1BC679940015B8D6 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		BE17E47F1BC6799C0015B8D6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BE17E4811BC67A150015B8D6 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		BE17E4841BC67F950015B8D6 /* UIKitRACExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitRACExtensions.swift; sourceTree = "<group>"; };
+		BE17E4861BC67FC50015B8D6 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		BE17E4891BC680400015B8D6 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		BE17E48B1BC6806F0015B8D6 /* RouterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterViewController.swift; sourceTree = "<group>"; };
+		BE17E48D1BC6828B0015B8D6 /* AccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
+		BE17E48F1BC682940015B8D6 /* AccountsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsViewModel.swift; sourceTree = "<group>"; };
+		BE17E4911BC682C20015B8D6 /* AccountsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsViewController.xib; sourceTree = "<group>"; };
 		BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ANZGoMoneyAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEB15101B982BE6008F1D50 /* ANZGoMoneyAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANZGoMoneyAPI.h; sourceTree = "<group>"; };
 		BEEB15121B982BE6008F1D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,6 +176,9 @@
 		BE1175711B8B1395008F5D9D /* ANZGoMoney */ = {
 			isa = PBXGroup;
 			children = (
+				BE17E4831BC67F7F0015B8D6 /* Utils */,
+				BE17E47C1BC679810015B8D6 /* Views */,
+				BE17E47B1BC6797B0015B8D6 /* ViewModels */,
 				BE17E4771BC66A520015B8D6 /* Private.swift */,
 				BE1175721B8B1395008F5D9D /* AppDelegate.swift */,
 				BE1175741B8B1395008F5D9D /* ViewController.swift */,
@@ -175,6 +198,37 @@
 				BE1175891B8B1395008F5D9D /* Info.plist */,
 			);
 			path = ANZGoMoneyTests;
+			sourceTree = "<group>";
+		};
+		BE17E47B1BC6797B0015B8D6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BE17E4861BC67FC50015B8D6 /* ViewModel.swift */,
+				BE17E47D1BC679940015B8D6 /* LoginViewModel.swift */,
+				BE17E48F1BC682940015B8D6 /* AccountsViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		BE17E47C1BC679810015B8D6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BE17E47F1BC6799C0015B8D6 /* LoginViewController.swift */,
+				BE17E4811BC67A150015B8D6 /* LoginViewController.xib */,
+				BE17E48D1BC6828B0015B8D6 /* AccountsViewController.swift */,
+				BE17E4911BC682C20015B8D6 /* AccountsViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BE17E4831BC67F7F0015B8D6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BE17E4841BC67F950015B8D6 /* UIKitRACExtensions.swift */,
+				BE17E4891BC680400015B8D6 /* Router.swift */,
+				BE17E48B1BC6806F0015B8D6 /* RouterViewController.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		BEEB150F1B982BE6008F1D50 /* ANZGoMoneyAPI */ = {
@@ -355,6 +409,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE17E4821BC67A150015B8D6 /* LoginViewController.xib in Resources */,
+				BE17E4921BC682C20015B8D6 /* AccountsViewController.xib in Resources */,
 				BE11757D1B8B1395008F5D9D /* LaunchScreen.storyboard in Resources */,
 				BE11757A1B8B1395008F5D9D /* Assets.xcassets in Resources */,
 				BE1175781B8B1395008F5D9D /* Main.storyboard in Resources */,
@@ -437,10 +493,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE17E4801BC6799C0015B8D6 /* LoginViewController.swift in Sources */,
 				BE1175751B8B1395008F5D9D /* ViewController.swift in Sources */,
 				BE1175731B8B1395008F5D9D /* AppDelegate.swift in Sources */,
 				BE17E4781BC66A520015B8D6 /* Private.swift in Sources */,
+				BE17E48E1BC6828B0015B8D6 /* AccountsViewController.swift in Sources */,
+				BE17E48A1BC680400015B8D6 /* Router.swift in Sources */,
+				BE17E47E1BC679940015B8D6 /* LoginViewModel.swift in Sources */,
 				BE17E47A1BC6715C0015B8D6 /* DeviceManager.swift in Sources */,
+				BE17E4871BC67FC50015B8D6 /* ViewModel.swift in Sources */,
+				BE17E4851BC67F950015B8D6 /* UIKitRACExtensions.swift in Sources */,
+				BE17E4901BC682940015B8D6 /* AccountsViewModel.swift in Sources */,
+				BE17E48C1BC6806F0015B8D6 /* RouterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

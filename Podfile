@@ -5,6 +5,8 @@ use_frameworks!
 
 target 'ANZGoMoney' do
     pod 'KeychainAccess'
+    pod 'SwiftyJSON', '~> 2.3'
+    pod 'ReactiveCocoa', '4.0.2-alpha-1'
 end
 
 target 'ANZGoMoneyTests' do

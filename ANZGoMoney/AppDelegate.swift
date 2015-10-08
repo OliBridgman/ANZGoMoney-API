@@ -7,20 +7,44 @@
 //
 
 import UIKit
+import ANZGoMoneyAPI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var router: Router?
+    var viewModelServices: ViewModelServices?
+    let api = ANZGoMoneyAPI()
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        if let _ = DeviceManager.sharedInstance.retrieveDeviceToken() {
+        let api = ANZGoMoneyAPI()
+        
+        if let deviceToken = DeviceManager.sharedInstance.retrieveDeviceToken() {
             print("Signed in, well, have a token")
+            
+            
+            
+//            api.authenticate(deviceToken.deviceToken, pin: deviceToken.passcode, completion: { (response) -> () in
+//                print(response)
+//            })
+            
+            
         } else {
             print("not signed in")
         }
+        
+        self.router = Router()
+        
+        let services = Services(router: self.router!, api: self.api)
+        let viewModel = LoginViewModel(services: services)
+        self.router?.resetToRootViewModel(viewModel)
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.router?.rootViewController
+        self.window?.makeKeyAndVisible()
         
         return true
     }

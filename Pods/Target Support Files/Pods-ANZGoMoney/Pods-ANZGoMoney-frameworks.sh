@@ -85,7 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-ANZGoMoney/KeychainAccess.framework"
+  install_framework "Pods-ANZGoMoney/ReactiveCocoa.framework"
+  install_framework "Pods-ANZGoMoney/Result.framework"
+  install_framework "Pods-ANZGoMoney/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-ANZGoMoney/KeychainAccess.framework"
+  install_framework "Pods-ANZGoMoney/ReactiveCocoa.framework"
+  install_framework "Pods-ANZGoMoney/Result.framework"
+  install_framework "Pods-ANZGoMoney/SwiftyJSON.framework"
 fi

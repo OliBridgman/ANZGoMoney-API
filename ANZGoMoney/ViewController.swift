@@ -9,6 +9,7 @@
 import UIKit
 import ANZGoMoneyAPI
 import KeychainAccess
+import SwiftyJSON
 
 class ViewController: UIViewController {
     
@@ -24,6 +25,32 @@ class ViewController: UIViewController {
         api.verifyPin(Private.passcode, deviceDescription: "[iPhone5,2]") { (response) -> () in
             
             // Parse the deviceToken + Key
+            switch (response) {
+            case .Failed(let error, _):
+                
+                switch error {
+                case .AuthCodeSent(let oneTimePassword):
+                    self.oneTimePassword = oneTimePassword
+                    print("One Time password retrieved")
+                default:
+                    return;
+                }
+                
+            case .Success(let responseObject):
+
+                let json = JSON(responseObject)
+                
+                if let deviceToken = json["newDevice"]["deviceToken"].string, let key = json["newDevice"]["key"].string {
+                    
+                    let deviceToken = DeviceToken(deviceToken: deviceToken, key: key, passcode: Private.passcode)
+                    DeviceManager.sharedInstance.storeDeviceToken(deviceToken)
+                    print(deviceToken)
+                    
+                } else {
+                    print("Failed to find the device token")
+                }
+                
+            }
             
             
             print(response)
