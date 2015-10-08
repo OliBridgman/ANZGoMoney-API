@@ -15,6 +15,7 @@
 		BE11757D1B8B1395008F5D9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE11757B1B8B1395008F5D9D /* LaunchScreen.storyboard */; };
 		BE1175881B8B1395008F5D9D /* ANZGoMoneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1175871B8B1395008F5D9D /* ANZGoMoneyTests.swift */; };
 		BE17E4781BC66A520015B8D6 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E4771BC66A520015B8D6 /* Private.swift */; settings = {ASSET_TAGS = (); }; };
+		BE17E47A1BC6715C0015B8D6 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E4791BC6715C0015B8D6 /* DeviceManager.swift */; settings = {ASSET_TAGS = (); }; };
 		BEEB15111B982BE6008F1D50 /* ANZGoMoneyAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = BEEB15101B982BE6008F1D50 /* ANZGoMoneyAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BEEB15181B982BE6008F1D50 /* ANZGoMoneyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */; };
 		BEEB151F1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB151E1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift */; };
@@ -83,6 +84,7 @@
 		BE1175871B8B1395008F5D9D /* ANZGoMoneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANZGoMoneyTests.swift; sourceTree = "<group>"; };
 		BE1175891B8B1395008F5D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE17E4771BC66A520015B8D6 /* Private.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
+		BE17E4791BC6715C0015B8D6 /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ANZGoMoneyAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEB15101B982BE6008F1D50 /* ANZGoMoneyAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANZGoMoneyAPI.h; sourceTree = "<group>"; };
 		BEEB15121B982BE6008F1D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				BE1175791B8B1395008F5D9D /* Assets.xcassets */,
 				BE11757B1B8B1395008F5D9D /* LaunchScreen.storyboard */,
 				BE11757E1B8B1395008F5D9D /* Info.plist */,
+				BE17E4791BC6715C0015B8D6 /* DeviceManager.swift */,
 			);
 			path = ANZGoMoney;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				BE1175751B8B1395008F5D9D /* ViewController.swift in Sources */,
 				BE1175731B8B1395008F5D9D /* AppDelegate.swift in Sources */,
 				BE17E4781BC66A520015B8D6 /* Private.swift in Sources */,
+				BE17E47A1BC6715C0015B8D6 /* DeviceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
