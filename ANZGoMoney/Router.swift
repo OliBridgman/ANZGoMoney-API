@@ -90,6 +90,8 @@ class Router {
         
         if let viewModel = viewModel as? LoginViewModel {
             return LoginViewController(viewModel: viewModel)
+        } else if let viewModel = viewModel as? PasscodeViewModel {
+            return PasscodeViewController(viewModel: viewModel)
         } else if let viewModel = viewModel as? AccountsViewModel {
             return AccountsViewController(viewModel: viewModel)
         }

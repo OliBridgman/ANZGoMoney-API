@@ -9,6 +9,8 @@
 import Foundation
 import ReactiveCocoa
 
+typealias JSONDictionary = Dictionary<String, AnyObject>
+
 class AccountsViewModel: ViewModel {
     
     let services: Services
@@ -16,6 +18,8 @@ class AccountsViewModel: ViewModel {
     let title = MutableProperty<String?>("Your Accounts")
     
     var logoutAction: CocoaAction?
+    
+    let data = MutableProperty<[Account]>([Account]())
     
     required init(services: Services) {
         
@@ -31,5 +35,24 @@ class AccountsViewModel: ViewModel {
         
         self.logoutAction = CocoaAction(logInActionBlock) { _ in print("logout button tapped") }
         
+        self.data <~ self.fetchAccounts()
+        
+    }
+    
+    func fetchAccounts() -> SignalProducer<[Account], NoError> {
+        
+        guard let deviceToken = DeviceManager.sharedInstance.retrieveDeviceToken() else {
+            return SignalProducer.empty
+        }
+        
+        let test = self.services.api.authenticate(deviceToken.deviceToken, pin2:deviceToken.passcode)
+        .flatMap(FlattenStrategy.Concat, transform: { value in
+            return self.services.api.fetchAccounts2()
+        })
+        
+        
+    
+        return test
+//        return self.services.api.fetchAccounts()
     }
 }

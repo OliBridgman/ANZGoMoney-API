@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F4EBE7D1D06DD87DBFAE6F8 /* Pods_ANZGoMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD245DF13FA17666F8D77135 /* Pods_ANZGoMoney.framework */; };
 		BE1175731B8B1395008F5D9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1175721B8B1395008F5D9D /* AppDelegate.swift */; };
 		BE1175751B8B1395008F5D9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1175741B8B1395008F5D9D /* ViewController.swift */; };
 		BE1175781B8B1395008F5D9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE1175761B8B1395008F5D9D /* Main.storyboard */; };
@@ -19,13 +18,25 @@
 		BE17E47E1BC679940015B8D6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E47D1BC679940015B8D6 /* LoginViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		BE17E4801BC6799C0015B8D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E47F1BC6799C0015B8D6 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		BE17E4821BC67A150015B8D6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE17E4811BC67A150015B8D6 /* LoginViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		BE17E4851BC67F950015B8D6 /* UIKitRACExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E4841BC67F950015B8D6 /* UIKitRACExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		BE17E4851BC67F950015B8D6 /* UIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E4841BC67F950015B8D6 /* UIKit+Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		BE17E4871BC67FC50015B8D6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E4861BC67FC50015B8D6 /* ViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		BE17E48A1BC680400015B8D6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E4891BC680400015B8D6 /* Router.swift */; settings = {ASSET_TAGS = (); }; };
 		BE17E48C1BC6806F0015B8D6 /* RouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E48B1BC6806F0015B8D6 /* RouterViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		BE17E48E1BC6828B0015B8D6 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E48D1BC6828B0015B8D6 /* AccountsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		BE17E4901BC682940015B8D6 /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17E48F1BC682940015B8D6 /* AccountsViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		BE17E4921BC682C20015B8D6 /* AccountsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE17E4911BC682C20015B8D6 /* AccountsViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		BE3501801BCA32F800EB29CB /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE35017F1BCA32F800EB29CB /* PasscodeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BE3501821BCA330200EB29CB /* PasscodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE3501811BCA330200EB29CB /* PasscodeViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		BE3501841BCA335100EB29CB /* PasscodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3501831BCA335100EB29CB /* PasscodeViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		BE90346A1BC9CC2A009FFA8A /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9034661BC9CC2A009FFA8A /* KeychainAccess.framework */; };
+		BE90346B1BC9CC2A009FFA8A /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9034671BC9CC2A009FFA8A /* ReactiveCocoa.framework */; };
+		BE90346C1BC9CC2A009FFA8A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9034681BC9CC2A009FFA8A /* Result.framework */; };
+		BE90346D1BC9CC2A009FFA8A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9034691BC9CC2A009FFA8A /* SwiftyJSON.framework */; };
+		BE9034741BC9CCDB009FFA8A /* KeychainAccess.framework.dSYM in Carthage Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = BE9034701BC9CCDB009FFA8A /* KeychainAccess.framework.dSYM */; };
+		BE9034751BC9CCDB009FFA8A /* ReactiveCocoa.framework.dSYM in Carthage Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = BE9034711BC9CCDB009FFA8A /* ReactiveCocoa.framework.dSYM */; };
+		BE9034761BC9CCDB009FFA8A /* Result.framework.dSYM in Carthage Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = BE9034721BC9CCDB009FFA8A /* Result.framework.dSYM */; };
+		BE9034771BC9CCDB009FFA8A /* SwiftyJSON.framework.dSYM in Carthage Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = BE9034731BC9CCDB009FFA8A /* SwiftyJSON.framework.dSYM */; };
+		BEB7E7EA1BCA63B30088A986 /* ANZGoMoneyAPI+Signals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7E7E91BCA63B30088A986 /* ANZGoMoneyAPI+Signals.swift */; settings = {ASSET_TAGS = (); }; };
 		BEEB15111B982BE6008F1D50 /* ANZGoMoneyAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = BEEB15101B982BE6008F1D50 /* ANZGoMoneyAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BEEB15181B982BE6008F1D50 /* ANZGoMoneyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */; };
 		BEEB151F1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB151E1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift */; };
@@ -66,6 +77,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		BE90346F1BC9CCBD009FFA8A /* Carthage Copy dSYM Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				BE9034741BC9CCDB009FFA8A /* KeychainAccess.framework.dSYM in Carthage Copy dSYM Files */,
+				BE9034751BC9CCDB009FFA8A /* ReactiveCocoa.framework.dSYM in Carthage Copy dSYM Files */,
+				BE9034761BC9CCDB009FFA8A /* Result.framework.dSYM in Carthage Copy dSYM Files */,
+				BE9034771BC9CCDB009FFA8A /* SwiftyJSON.framework.dSYM in Carthage Copy dSYM Files */,
+			);
+			name = "Carthage Copy dSYM Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEEB152A1B982BE6008F1D50 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -80,8 +105,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8F0A759B69C12277E713B0FE /* Pods-ANZGoMoney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANZGoMoney.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ANZGoMoney/Pods-ANZGoMoney.debug.xcconfig"; sourceTree = "<group>"; };
-		B1B8F2A0B06DE1B1EA8A5ECC /* Pods-ANZGoMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANZGoMoney.release.xcconfig"; path = "Pods/Target Support Files/Pods-ANZGoMoney/Pods-ANZGoMoney.release.xcconfig"; sourceTree = "<group>"; };
 		BE0876EA1B8FF3590004F26B /* ANZGoMoneyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANZGoMoneyAPI.swift; path = ../ANZGoMoney/ANZGoMoneyAPI.swift; sourceTree = "<group>"; };
 		BE11756F1B8B1395008F5D9D /* ANZGoMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ANZGoMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1175721B8B1395008F5D9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,20 +121,31 @@
 		BE17E47D1BC679940015B8D6 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BE17E47F1BC6799C0015B8D6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BE17E4811BC67A150015B8D6 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		BE17E4841BC67F950015B8D6 /* UIKitRACExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitRACExtensions.swift; sourceTree = "<group>"; };
+		BE17E4841BC67F950015B8D6 /* UIKit+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extensions.swift"; sourceTree = "<group>"; };
 		BE17E4861BC67FC50015B8D6 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		BE17E4891BC680400015B8D6 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		BE17E48B1BC6806F0015B8D6 /* RouterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterViewController.swift; sourceTree = "<group>"; };
 		BE17E48D1BC6828B0015B8D6 /* AccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
 		BE17E48F1BC682940015B8D6 /* AccountsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsViewModel.swift; sourceTree = "<group>"; };
 		BE17E4911BC682C20015B8D6 /* AccountsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsViewController.xib; sourceTree = "<group>"; };
+		BE35017F1BCA32F800EB29CB /* PasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
+		BE3501811BCA330200EB29CB /* PasscodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasscodeViewController.xib; sourceTree = "<group>"; };
+		BE3501831BCA335100EB29CB /* PasscodeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeViewModel.swift; sourceTree = "<group>"; };
+		BE9034661BC9CC2A009FFA8A /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
+		BE9034671BC9CC2A009FFA8A /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		BE9034681BC9CC2A009FFA8A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		BE9034691BC9CC2A009FFA8A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		BE9034701BC9CCDB009FFA8A /* KeychainAccess.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = KeychainAccess.framework.dSYM; path = Carthage/Build/iOS/KeychainAccess.framework.dSYM; sourceTree = "<group>"; };
+		BE9034711BC9CCDB009FFA8A /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveCocoa.framework.dSYM; path = Carthage/Build/iOS/ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
+		BE9034721BC9CCDB009FFA8A /* Result.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Result.framework.dSYM; path = Carthage/Build/iOS/Result.framework.dSYM; sourceTree = "<group>"; };
+		BE9034731BC9CCDB009FFA8A /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
+		BEB7E7E91BCA63B30088A986 /* ANZGoMoneyAPI+Signals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ANZGoMoneyAPI+Signals.swift"; sourceTree = "<group>"; };
 		BEEB150E1B982BE6008F1D50 /* ANZGoMoneyAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ANZGoMoneyAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEB15101B982BE6008F1D50 /* ANZGoMoneyAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANZGoMoneyAPI.h; sourceTree = "<group>"; };
 		BEEB15121B982BE6008F1D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEEB15171B982BE6008F1D50 /* ANZGoMoneyAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ANZGoMoneyAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEB151E1B982BE6008F1D50 /* ANZGoMoneyAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANZGoMoneyAPITests.swift; sourceTree = "<group>"; };
 		BEEB15201B982BE6008F1D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD245DF13FA17666F8D77135 /* Pods_ANZGoMoney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ANZGoMoney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +154,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEEB15231B982BE6008F1D50 /* ANZGoMoneyAPI.framework in Frameworks */,
-				6F4EBE7D1D06DD87DBFAE6F8 /* Pods_ANZGoMoney.framework in Frameworks */,
+				BE90346A1BC9CC2A009FFA8A /* KeychainAccess.framework in Frameworks */,
+				BE90346B1BC9CC2A009FFA8A /* ReactiveCocoa.framework in Frameworks */,
+				BE90346C1BC9CC2A009FFA8A /* Result.framework in Frameworks */,
+				BE90346D1BC9CC2A009FFA8A /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,8 +194,8 @@
 				BEEB150F1B982BE6008F1D50 /* ANZGoMoneyAPI */,
 				BEEB151D1B982BE6008F1D50 /* ANZGoMoneyAPITests */,
 				BE1175701B8B1395008F5D9D /* Products */,
-				FA17F724925CFAD0B641A10E /* Pods */,
-				DA8A173F19DA28420CDCC39D /* Frameworks */,
+				BE9034781BC9CCDF009FFA8A /* Carthage */,
+				BE9034651BC9CBCF009FFA8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,6 +242,7 @@
 			children = (
 				BE17E4861BC67FC50015B8D6 /* ViewModel.swift */,
 				BE17E47D1BC679940015B8D6 /* LoginViewModel.swift */,
+				BE3501831BCA335100EB29CB /* PasscodeViewModel.swift */,
 				BE17E48F1BC682940015B8D6 /* AccountsViewModel.swift */,
 			);
 			name = ViewModels;
@@ -217,6 +255,8 @@
 				BE17E4811BC67A150015B8D6 /* LoginViewController.xib */,
 				BE17E48D1BC6828B0015B8D6 /* AccountsViewController.swift */,
 				BE17E4911BC682C20015B8D6 /* AccountsViewController.xib */,
+				BE35017F1BCA32F800EB29CB /* PasscodeViewController.swift */,
+				BE3501811BCA330200EB29CB /* PasscodeViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -224,11 +264,42 @@
 		BE17E4831BC67F7F0015B8D6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				BE17E4841BC67F950015B8D6 /* UIKitRACExtensions.swift */,
+				BE17E4841BC67F950015B8D6 /* UIKit+Extensions.swift */,
 				BE17E4891BC680400015B8D6 /* Router.swift */,
 				BE17E48B1BC6806F0015B8D6 /* RouterViewController.swift */,
+				BEB7E7E91BCA63B30088A986 /* ANZGoMoneyAPI+Signals.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		BE9034651BC9CBCF009FFA8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE9034661BC9CC2A009FFA8A /* KeychainAccess.framework */,
+				BE9034671BC9CC2A009FFA8A /* ReactiveCocoa.framework */,
+				BE9034681BC9CC2A009FFA8A /* Result.framework */,
+				BE9034691BC9CC2A009FFA8A /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE9034781BC9CCDF009FFA8A /* Carthage */ = {
+			isa = PBXGroup;
+			children = (
+				BE9034791BC9CCE8009FFA8A /* dSYMs */,
+			);
+			name = Carthage;
+			sourceTree = "<group>";
+		};
+		BE9034791BC9CCE8009FFA8A /* dSYMs */ = {
+			isa = PBXGroup;
+			children = (
+				BE9034701BC9CCDB009FFA8A /* KeychainAccess.framework.dSYM */,
+				BE9034711BC9CCDB009FFA8A /* ReactiveCocoa.framework.dSYM */,
+				BE9034721BC9CCDB009FFA8A /* Result.framework.dSYM */,
+				BE9034731BC9CCDB009FFA8A /* SwiftyJSON.framework.dSYM */,
+			);
+			name = dSYMs;
 			sourceTree = "<group>";
 		};
 		BEEB150F1B982BE6008F1D50 /* ANZGoMoneyAPI */ = {
@@ -250,23 +321,6 @@
 			path = ANZGoMoneyAPITests;
 			sourceTree = "<group>";
 		};
-		DA8A173F19DA28420CDCC39D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CD245DF13FA17666F8D77135 /* Pods_ANZGoMoney.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FA17F724925CFAD0B641A10E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8F0A759B69C12277E713B0FE /* Pods-ANZGoMoney.debug.xcconfig */,
-				B1B8F2A0B06DE1B1EA8A5ECC /* Pods-ANZGoMoney.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -285,13 +339,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE11758C1B8B1395008F5D9D /* Build configuration list for PBXNativeTarget "ANZGoMoney" */;
 			buildPhases = (
-				C896425477C8F2393F03E781 /* Check Pods Manifest.lock */,
 				BE11756B1B8B1395008F5D9D /* Sources */,
 				BE11756C1B8B1395008F5D9D /* Frameworks */,
 				BE11756D1B8B1395008F5D9D /* Resources */,
 				BEEB152A1B982BE6008F1D50 /* Embed Frameworks */,
-				8490EACEFB12DA8C398F1E4B /* Embed Pods Frameworks */,
-				D78E20859B563F4D8B85635F /* Copy Pods Resources */,
+				BE90346E1BC9CC3B009FFA8A /* Carthage */,
+				BE90346F1BC9CCBD009FFA8A /* Carthage Copy dSYM Files */,
 			);
 			buildRules = (
 			);
@@ -411,6 +464,7 @@
 			files = (
 				BE17E4821BC67A150015B8D6 /* LoginViewController.xib in Resources */,
 				BE17E4921BC682C20015B8D6 /* AccountsViewController.xib in Resources */,
+				BE3501821BCA330200EB29CB /* PasscodeViewController.xib in Resources */,
 				BE11757D1B8B1395008F5D9D /* LaunchScreen.storyboard in Resources */,
 				BE11757A1B8B1395008F5D9D /* Assets.xcassets in Resources */,
 				BE1175781B8B1395008F5D9D /* Main.storyboard in Resources */,
@@ -441,50 +495,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8490EACEFB12DA8C398F1E4B /* Embed Pods Frameworks */ = {
+		BE90346E1BC9CC3B009FFA8A /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
-			name = "Embed Pods Frameworks";
+			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ANZGoMoney/Pods-ANZGoMoney-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C896425477C8F2393F03E781 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D78E20859B563F4D8B85635F /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ANZGoMoney/Pods-ANZGoMoney-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -497,12 +524,15 @@
 				BE1175751B8B1395008F5D9D /* ViewController.swift in Sources */,
 				BE1175731B8B1395008F5D9D /* AppDelegate.swift in Sources */,
 				BE17E4781BC66A520015B8D6 /* Private.swift in Sources */,
+				BEB7E7EA1BCA63B30088A986 /* ANZGoMoneyAPI+Signals.swift in Sources */,
 				BE17E48E1BC6828B0015B8D6 /* AccountsViewController.swift in Sources */,
 				BE17E48A1BC680400015B8D6 /* Router.swift in Sources */,
+				BE3501841BCA335100EB29CB /* PasscodeViewModel.swift in Sources */,
 				BE17E47E1BC679940015B8D6 /* LoginViewModel.swift in Sources */,
 				BE17E47A1BC6715C0015B8D6 /* DeviceManager.swift in Sources */,
 				BE17E4871BC67FC50015B8D6 /* ViewModel.swift in Sources */,
-				BE17E4851BC67F950015B8D6 /* UIKitRACExtensions.swift in Sources */,
+				BE3501801BCA32F800EB29CB /* PasscodeViewController.swift in Sources */,
+				BE17E4851BC67F950015B8D6 /* UIKit+Extensions.swift in Sources */,
 				BE17E4901BC682940015B8D6 /* AccountsViewModel.swift in Sources */,
 				BE17E48C1BC6806F0015B8D6 /* RouterViewController.swift in Sources */,
 			);
@@ -660,10 +690,13 @@
 		};
 		BE11758D1B8B1395008F5D9D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F0A759B69C12277E713B0FE /* Pods-ANZGoMoney.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ANZGoMoney/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wtsnz.ANZGoMoney;
@@ -673,10 +706,13 @@
 		};
 		BE11758E1B8B1395008F5D9D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1B8F2A0B06DE1B1EA8A5ECC /* Pods-ANZGoMoney.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ANZGoMoney/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wtsnz.ANZGoMoney;

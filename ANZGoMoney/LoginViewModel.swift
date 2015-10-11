@@ -11,9 +11,11 @@ import ReactiveCocoa
 import ANZGoMoneyAPI
 
 enum LoginViewModelError: ErrorType {
-    case OneTimePasswordRequired
+    case OneTimePasswordRequired(oneTimePassword: String)
     case Unknown
 }
+
+typealias TwoFactorLoginInfo = (authCode: String, oneTimePassword: String)?
 
 class LoginViewModel: ViewModel {
     
@@ -26,14 +28,13 @@ class LoginViewModel: ViewModel {
     let isValid = MutableProperty<Bool>(false)
     
     var loginAction: CocoaAction?
-    
-    var oneTimePassword = ""
+    var loginActionBlock: Action<TwoFactorLoginInfo, AnyObject, LoginViewModelError>?
     
     required init(services: Services) {
         
         self.services = services
         
-        let logInActionBlock = Action<Void, String, NoError> {
+        self.loginActionBlock = Action<TwoFactorLoginInfo, AnyObject, LoginViewModelError> { input in
             
             guard let username = self.username.value else {
                 print("No username")
@@ -47,18 +48,32 @@ class LoginViewModel: ViewModel {
             
             // One time password
             
+            print("has one time password? \(input)")
             
-            // TODO: Reactify this
-
+            return self.login(username, password: password, oneTimePassword: input?.oneTimePassword, authCode: input?.authCode)
             
-            
-            let accountsViewModel = AccountsViewModel(services: self.services)
-            self.services.router.resetToRootViewModel(accountsViewModel)
-            
+//            // TODO: Reactify this
+//            
+//            let accountsViewModel = AccountsViewModel(services: self.services)
+//            self.services.router.resetToRootViewModel(accountsViewModel)
+//            
+//            return SignalProducer.empty
+        }
+        
+        
+        self.loginActionBlock?.executing.producer.start({
+            print("executing: \($0)")
+        })
+        
+        let actionWrapper = Action<Void, Void, NoError> {
+            self.loginActionBlock?.apply(nil).start { test in
+                print(test)
+            }
             return SignalProducer.empty
         }
         
-        self.loginAction = CocoaAction(logInActionBlock) { _ in print("login button tapped") }
+
+        self.loginAction = CocoaAction(actionWrapper) { _ in print("login button tapped") }
         
         // Create a mapping to the isValid property based on the username and password
         self.isValid <~ combineLatest(self.username.producer, self.password.producer)
@@ -69,76 +84,83 @@ class LoginViewModel: ViewModel {
         
     }
     
+    func loginComplete(object: AnyObject) -> Void {
     
-    func login(username: String, password: String) -> SignalProducer<AnyObject, LoginViewModelError> {
-        
-        return SignalProducer { observer, disposable in
-            
-            self.services.api.authenticate(username, password: password, completion: { (response) -> () in
-                
-                switch (response) {
-                case .Failed(let error, _):
-                    
-                    switch error {
-                    case .AuthCodeSent(let oneTimePwd):
-                        self.oneTimePassword = oneTimePwd
-                        
-                        // show alert asking for authcode
-                        sendError(observer, LoginViewModelError.OneTimePasswordRequired)
-                        
-                        
-                        print("One Time password retrieved")
-                    default:
-                        sendError(observer, LoginViewModelError.OneTimePasswordRequired)
-                        return;
-                    }
-                    
-                case .Success(let responseObject):
-                    // nop? (I don't have another ANZ account to play with to get a copy of this response, so set up 2FA!) - show an alert?
-                    print(responseObject)
-                    sendNext(observer, "done")
-                    sendCompleted(observer)
-                }
-                
-            })
-            
-            disposable.addDisposable {
-                //                task.cancel()
-            }
-        }
+        let passcodeViewModel = PasscodeViewModel(services: self.services)
+        self.services.router.pushToViewModel(passcodeViewModel)
+    
     }
     
-    func login(username: String, onetimePassword: String, authCode: String) -> SignalProducer<AnyObject, LoginViewModelError> {
+    
+    func login(username: String, password: String, oneTimePassword: String?, authCode: String?) -> SignalProducer<AnyObject, LoginViewModelError> {
         
-        return SignalProducer { observer, disposable in
+        return SignalProducer({ observer, disposable in
             
-            self.services.api.authenticate(username, oneTimePassword: onetimePassword, authCode: authCode, completion: { (response) -> () in
+            if let oneTimePassword = oneTimePassword, authCode = authCode {
                 
-                switch (response) {
-                case .Failed(let error, let responseObject):
-                    print(error)
-                    print(responseObject)
-                    sendError(observer, LoginViewModelError.Unknown)
-                case .Success(let _):
-                    //                print(responseObject)
+                self.services.api.authenticate(username, oneTimePassword: oneTimePassword, authCode: authCode, completion: { (response) -> () in
                     
-//                    if let sessionId = responseObject["ibSessionId"] {
-////                        print("FOUND sessionId \(sessionId)")
-////                        self.ibSessionId = sessionId as! String
-////                        self.api.ibSessionId = self.ibSessionId
-//                    }
+                    switch (response) {
+                    case .Failed(let error, let responseObject):
+                        print(error)
+                        print(responseObject)
+                        sendError(observer, LoginViewModelError.Unknown)
+                    case .Success(let responseObject):
+                        print(responseObject)
+                        
+//                        if let sessionId = responseObject["ibSessionId"] {
+//                            //                        print("FOUND sessionId \(sessionId)")
+//                            //                        self.ibSessionId = sessionId as! String
+//                            //                        self.api.ibSessionId = self.ibSessionId
+//                        }
+                        
+                        sendNext(observer, responseObject)
+                        sendCompleted(observer)
+                        
+                    }
                     
-                    sendNext(observer, "done")
-                    sendCompleted(observer)
-                    
-                }
+                })
                 
-            })
+                
+            } else {
+                
+                self.services.api.authenticate(username, password: password, completion: { (response) -> () in
+                    
+                    switch (response) {
+                    case .Failed(let error, _):
+                        
+                        switch error {
+                        case .AuthCodeSent(let oneTimePassword):
+                            // show alert asking for authcode
+                            sendError(observer, LoginViewModelError.OneTimePasswordRequired(oneTimePassword: oneTimePassword))
+                            
+                            print("One Time password retrieved")
+                        default:
+                            
+                            sendError(observer, LoginViewModelError.Unknown)
+                            return;
+                        }
+                        
+                    case .Success(let responseObject):
+                        // nop? (I don't have another ANZ account to play with to get a copy of this response, so set up 2FA!) - show an alert?
+                        print(responseObject)
+                        sendNext(observer, "done")
+                        sendCompleted(observer)
+                    }
+                    
+                })
+            }
             
             disposable.addDisposable {
                 //                task.cancel()
             }
-        }
+        })
+        // When finished
+        .observeOn(UIScheduler())
+        .on(next: loginComplete)
+        // Retry the api call twice before giving up.
+        //.retry(2)
+
     }
     
     

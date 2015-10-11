@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountsViewController">
             <connections>
+                <outlet property="tableView" destination="3CK-g1-nrz" id="7hD-Cy-4jU"/>
                 <outlet property="view" destination="iN0-l3-epB" id="8Rx-au-zE2"/>
             </connections>
         </placeholder>
@@ -14,15 +15,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3CK-g1-nrz">
-                    <rect key="frame" x="0.0" y="55" width="236" height="285"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3CK-g1-nrz">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="353" y="395"/>
+            <constraints>
+                <constraint firstItem="3CK-g1-nrz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="KPQ-N2-IxW"/>
+                <constraint firstAttribute="bottom" secondItem="3CK-g1-nrz" secondAttribute="bottom" id="alB-1Q-pa6"/>
+                <constraint firstAttribute="trailing" secondItem="3CK-g1-nrz" secondAttribute="trailing" id="rpM-il-Xu4"/>
+                <constraint firstItem="3CK-g1-nrz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wVM-FU-dlV"/>
+            </constraints>
+            <point key="canvasLocation" x="415" y="392"/>
         </view>
     </objects>
 </document>

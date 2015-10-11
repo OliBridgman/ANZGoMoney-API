@@ -11,7 +11,9 @@ import Foundation
 import UIKit
 import ReactiveCocoa
 
-class AccountsViewController: UIViewController, ViewModelViewController {
+class AccountsViewController: UIViewController, ViewModelViewController, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     let viewModel: AccountsViewModel
     
@@ -28,20 +30,44 @@ class AccountsViewController: UIViewController, ViewModelViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.dataSource = self
+        
         // Add Actions
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Done, target: self.viewModel.logoutAction, action: CocoaAction.selector)
         
-//        // Have to manually add the contraint to the topLayoutGuide. >.<
-//        let topLayoutGuide = NSLayoutConstraint(
-//            item: self.usernameTextField,
-//            attribute: .Top,
-//            relatedBy: .Equal,
-//            toItem: self.topLayoutGuide,
-//            attribute: .Bottom,
-//            multiplier: 1.0,
-//            constant: 10
-//        )
-//        self.view.addConstraint(topLayoutGuide)
+        self.viewModel.data.producer.observeOn(UIScheduler()).startWithNext { next in
+            print("RECIEVED ACCOUNTTSS@!!! \(next)")
+            self.tableView.reloadData()
+        }
         
     }
+    
+    // UITableViewDataSource
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.data.value.count
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        
+        let account = self.viewModel.data.value[indexPath.row]
+        
+        cell.textLabel?.text = account.nickname
+        
+        if let balance = Double(account.balance) {
+            cell.detailTextLabel?.text = "\(balance * Double(arc4random_uniform(150)/150))"
+        }
+        
+        
+        
+        return cell
+    }
+    
 }

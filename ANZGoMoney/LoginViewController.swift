@@ -53,8 +53,65 @@ class LoginViewController: UIViewController, ViewModelViewController {
         self.viewModel.password <~ self.passwordTextField.rac_text
         self.loginButton.rac_enabled <~ self.viewModel.isValid.producer.observeOn(UIScheduler())
         
-        // Add Actions
-        self.loginButton.addTarget(self.viewModel.loginAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
+        // Add Actionsa
+        self.loginButton.addTarget(self.viewModel.loginAction!, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
+        
+        // Disabled the button when the action is running
+        self.loginButton.rac_enabled <~ self.viewModel.loginActionBlock!.enabled.producer.observeOn(UIScheduler())
+        
+        self.viewModel.loginActionBlock!.errors.observeOn(UIScheduler()).observe({ error in
+            
+            guard let apiError = error.value else {
+                print("no error")
+                return
+            }
+            
+            switch apiError {
+            case .OneTimePasswordRequired(let oneTimePassword):
+                
+                let alertController = UIAlertController(title: "2 Factor Auth", message: "Please enter the auth code you will have recieved via sms", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alertController.addTextFieldWithConfigurationHandler({ (let textField) -> Void in
+                    textField.returnKeyType = .Go
+                    textField.placeholder = "auth code"
+                    textField.secureTextEntry = true
+                })
+                
+                alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (let action) -> Void in
+                    print("cancelled")
+                }))
+                
+                alertController.addAction(UIAlertAction(title: "Login", style: UIAlertActionStyle.Default, handler: { (let action) -> Void in
+                    
+                    let authCode = alertController.textFields?.first?.text
+                    let otp = oneTimePassword
+                    
+                    if let authCode = authCode {
+                        let twoFactorInfo = (oneTimePassword: otp, authCode: authCode)
+                        self.viewModel.loginActionBlock?.apply(twoFactorInfo).start()
+                    }
+                    
+                    print("loggin in with \(authCode), \(otp)")
+                    
+                }))
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+                
+                
+            case .Unknown:
+                let alertController = UIAlertController(title: "Error!", message: "There was an error", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alertController.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: { (let action) -> Void in
+                    print("okay")
+                }))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+            }
+            
+            
+            
+        })
         
     }
 }
