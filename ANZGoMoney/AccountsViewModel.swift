@@ -45,14 +45,18 @@ class AccountsViewModel: ViewModel {
             return SignalProducer.empty
         }
         
-        let test = self.services.api.authenticate(deviceToken.deviceToken, pin2:deviceToken.passcode)
-        .flatMap(FlattenStrategy.Concat, transform: { value in
-            return self.services.api.fetchAccounts2()
-        })
+        return self.services.api.authenticatedFetchAccountsSignal(deviceToken.deviceToken, pin2: deviceToken.passcode)
+            .flatMapError { error in
+                return SignalProducer.empty
+        }
         
-        
+//        let test = self.services.api.authenticate(deviceToken.deviceToken, pin2:deviceToken.passcode)
+//        .flatMap(FlattenStrategy.Concat, transform: { value in
+//            return self.services.api.fetchAccountsSignal()
+//        })
+//        
+//        
     
-        return test
 //        return self.services.api.fetchAccounts()
     }
 }

@@ -7,11 +7,10 @@
 //
 
 import Foundation
-import ANZGoMoneyAPI
 import ReactiveCocoa
 import SwiftyJSON
 
-public class Account {
+public class Account: NSObject, NSCoding {
     
     let key: String
     let customerKey: String
@@ -29,15 +28,58 @@ public class Account {
         self.available = available
         self.productName = productName
         
+        super.init()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+
+        self.key = aDecoder.decodeObjectForKey("key") as! String
+        self.customerKey = aDecoder.decodeObjectForKey("customerKey") as! String
+        self.nickname = aDecoder.decodeObjectForKey("nickname") as! String
+        self.balance = aDecoder.decodeObjectForKey("balance") as! String
+        self.available = aDecoder.decodeObjectForKey("available") as! String
+        self.productName = aDecoder.decodeObjectForKey("productName") as! String
+        
+        super.init()
+    }
+    
+    public func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.key, forKey: "key")
+        aCoder.encodeObject(self.customerKey, forKey: "customerKey")
+        aCoder.encodeObject(self.nickname, forKey: "nickname")
+        aCoder.encodeObject(self.balance, forKey: "balance")
+        aCoder.encodeObject(self.available, forKey: "available")
+        aCoder.encodeObject(self.productName, forKey: "productName")
     }
     
 }
 
 extension ANZGoMoneyAPI {
     
-    public func fetchAccounts2() -> SignalProducer<[Account], NoError> {
-        
-        return SignalProducer<[Account], NoError> { observer, disposable in
+    // Really really hacky.
+    public func authenticatedFetchAccountsSignal(deviceToken: String, pin2: String) -> SignalProducer<[Account], APIError> {
+        return self.fetchAccountsSignal()
+            .flatMapError { (error: APIError) -> SignalProducer<[Account], APIError> in
+                return self.authenticate(deviceToken, pin2: pin2)
+                    .flatMap(.Latest) { responseData in
+                        return self.fetchAccountsSignal()
+                    }
+            }
+    }
+    
+    public func fetchAccountsSignal() -> SignalProducer<[Account], APIError> {
+       
+        return SignalProducer<[Account], APIError> { observer, disposable in
+            
+//            NSUserDefaults.standardUserDefaults().removeObjectForKey("accounts")
+            
+            if let savedAccounts = NSUserDefaults.standardUserDefaults().dataForKey("accounts"){
+                print(savedAccounts)
+                if let accounts = NSKeyedUnarchiver.unarchiveObjectWithData(savedAccounts) as? [Account] {
+                    print(accounts)
+                    sendNext(observer, accounts)
+                }
+            }
             
             self.fetchAccounts({ (response) -> () in
                 
@@ -45,7 +87,8 @@ extension ANZGoMoneyAPI {
                 case .Failed(let error, let responseObject):
                     print(error)
                     print(responseObject)
-                    //                    sendError(observer, LoginViewModelError.Unknown)
+                    sendError(observer, APIError.Unknown)
+                    
                 case .Success(let responseObject):
                     
                     let json = JSON(responseObject)
@@ -63,6 +106,9 @@ extension ANZGoMoneyAPI {
                         )
                     })
                     
+                    let accountsData = NSKeyedArchiver.archivedDataWithRootObject(transformed)
+                    NSUserDefaults.standardUserDefaults().setObject(accountsData, forKey: "accounts")
+                    
                     sendNext(observer, transformed)
                     sendCompleted(observer)
                     
@@ -71,13 +117,18 @@ extension ANZGoMoneyAPI {
         }
     }
     
-    public func authenticate(deviceToken: String, pin2: String) -> SignalProducer<AnyObject, NoError> {
+    public func authenticate(deviceToken: String, pin2: String) -> SignalProducer<AnyObject, APIError> {
     
-        return SignalProducer<AnyObject, NoError> { observer, disposable in
-            
+        return SignalProducer<AnyObject, APIError> { observer, disposable in
             self.authenticate(deviceToken, pin: pin2, completion: { (response) -> () in
-                sendNext(observer, "okay")
-                sendCompleted(observer)
+                switch (response) {
+                case .Failed(let error, _):
+                    print(error)
+                    sendError(observer, APIError.LoginDenied)
+                case .Success(let responseObject):
+                    sendNext(observer, responseObject)
+                    sendCompleted(observer)
+                }
             })
         }
     }

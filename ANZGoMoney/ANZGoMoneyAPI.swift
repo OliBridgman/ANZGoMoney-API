@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ReactiveCocoa
 
 public class ANZGoMoneyAPI {
     
@@ -35,28 +36,29 @@ public class ANZGoMoneyAPI {
     
     private let APIKey: String
     
-    public var ibSessionId: String? = nil
+    public var ibSessionId: String? {
+        get {
+            return NSUserDefaults.standardUserDefaults().objectForKey("sessionId") as? String
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "sessionId")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
     
     private lazy var urlSession: NSURLSession = {
         let urlSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
         urlSessionConfiguration.HTTPAdditionalHeaders = ["Accept": "application/json"]
-        urlSessionConfiguration.HTTPCookieStorage = NSHTTPCookieStorage()
+        
+//        let cs = NSHTTPCookieStorage()
+//        cs.cookieAcceptPolicy = NSHTTPCookieAcceptPolicy.Always
+//        cs.cookies
+//        urlSessionConfiguration.HTTPCookieSt
         let urlSession = NSURLSession(configuration: urlSessionConfiguration)
         return urlSession
     }()
     
     private let endpoint = "https://secure.anz.co.nz/api/v5/"
-    
-    private var headers: [String: AnyObject] {
-        get {
-            return [
-                "Api-Key": self.APIKey,
-                "Content-Type": "application/json",
-                "User-Agent": "goMoney NZ/4.6.0/Wifi/iPhone7,2/9.0/",
-                "Api-Request-Id": NSUUID().UUIDString
-            ]
-        }
-    }
     
     // MARK: - Initializers
     
@@ -94,6 +96,48 @@ public class ANZGoMoneyAPI {
         return .Unknown
         
     }
+    
+//    func request(path: String, method: String = "POST", payload: JSONDictionary? = nil) -> SignalProducer<(NSData, NSURLResponse), NSError> {
+//        
+//        var jsonData: NSData? = nil
+//        
+//        if let payload = payload {
+//            do {
+//                jsonData = try NSJSONSerialization.dataWithJSONObject(payload, options: [])
+//            } catch {
+//                return SignalProducer.empty
+//            }
+//        }
+//        
+//        guard let url = NSURL(string: "\(endpoint)\(path)") else {
+//            return SignalProducer.empty
+//        }
+//        
+//        
+//        let request = NSMutableURLRequest(URL: url)
+//        request.HTTPBody = jsonData;
+//        request.HTTPMethod = method
+//        
+//        var httpHeaders = [
+//            "Api-Key": APIKey,
+//            "Content-Type": "application/json",
+//            "User-Agent": "goMoney NZ/4.6.0/Wifi/iPhone7,2/9.0/",
+//            "Api-Request-Id": NSUUID().UUIDString
+//        ]
+//        
+//        if let ibSessionId = self.ibSessionId {
+//            print("SessionID: \(self.ibSessionId)")
+//            httpHeaders.updateValue(ibSessionId, forKey: "IB-Session-ID")
+//            print("New Headers: \(httpHeaders)")
+//        } else {
+//            print("NO SESSION ID SET")
+//        }
+//        
+//        request.allHTTPHeaderFields = httpHeaders
+//        
+//        return self.urlSession.rac_dataWithRequest(request)
+//    }
+    
     
     private func sendRequest(path: String, method: String = "POST", payload: JSONDictionary? = nil, completion: ((response: APIResponse) -> ())? = nil) {
         

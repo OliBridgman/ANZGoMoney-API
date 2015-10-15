@@ -8,7 +8,6 @@
 
 import Foundation
 import ReactiveCocoa
-import ANZGoMoneyAPI
 
 /// All ViewModels should implement this protocol. Provides common accessors for the views.
 protocol ViewModel {

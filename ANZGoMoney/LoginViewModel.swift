@@ -8,7 +8,6 @@
 
 import Foundation
 import ReactiveCocoa
-import ANZGoMoneyAPI
 
 enum LoginViewModelError: ErrorType {
     case OneTimePasswordRequired(oneTimePassword: String)

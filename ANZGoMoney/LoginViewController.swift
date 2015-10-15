@@ -96,9 +96,7 @@ class LoginViewController: UIViewController, ViewModelViewController {
                 }))
                 
                 self.presentViewController(alertController, animated: true, completion: nil)
-                
-                
-                
+                                
             case .Unknown:
                 let alertController = UIAlertController(title: "Error!", message: "There was an error", preferredStyle: UIAlertControllerStyle.Alert)
                 
@@ -108,10 +106,6 @@ class LoginViewController: UIViewController, ViewModelViewController {
                 self.presentViewController(alertController, animated: true, completion: nil)
                 
             }
-            
-            
-            
         })
-        
     }
 }

@@ -38,5 +38,4 @@ class PasscodeViewController: UIViewController, ViewModelViewController {
         self.passcodeTextField.becomeFirstResponder()
         super.viewWillAppear(animated)
     }
-    
 }

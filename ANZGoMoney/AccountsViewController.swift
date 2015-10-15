@@ -37,7 +37,6 @@ class AccountsViewController: UIViewController, ViewModelViewController, UITable
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Done, target: self.viewModel.logoutAction, action: CocoaAction.selector)
         
         self.viewModel.data.producer.observeOn(UIScheduler()).startWithNext { next in
-            print("RECIEVED ACCOUNTTSS@!!! \(next)")
             self.tableView.reloadData()
         }
         
@@ -62,9 +61,8 @@ class AccountsViewController: UIViewController, ViewModelViewController, UITable
         cell.textLabel?.text = account.nickname
         
         if let balance = Double(account.balance) {
-            cell.detailTextLabel?.text = "\(balance * Double(arc4random_uniform(150)/150))"
+            cell.textLabel?.text = "\(account.nickname) $\(balance)"
         }
-        
         
         
         return cell
