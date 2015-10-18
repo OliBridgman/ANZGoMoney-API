@@ -12,6 +12,7 @@ import SwiftyJSON
 
 class PasscodeViewModel: ViewModel {
     
+    
     let services: Services
     
     let title = MutableProperty<String?>("Enter Passcode")
@@ -23,6 +24,7 @@ class PasscodeViewModel: ViewModel {
     required init(services: Services) {
         
         self.services = services
+        
         
         let createPasscodeAction = Action<String, DeviceToken, NoError> { value in
             
@@ -39,9 +41,12 @@ class PasscodeViewModel: ViewModel {
                         
                         let json = JSON(responseObject)
                         
-                        if let deviceToken = json["newDevice"]["deviceToken"].string, let key = json["newDevice"]["key"].string {
+                        if let deviceToken = json["newDevice"]["deviceToken"].string, let key = json["newDevice"]["key"].string, passcode = self.passcode.value {
                             
-                            let deviceToken = DeviceToken(deviceToken: deviceToken, key: key, passcode: Private.passcode)
+                            let deviceToken = DeviceToken(deviceToken: deviceToken, key: key, passcode: passcode)
+
+//                            self.sendWatchDeviceToken(deviceToken)
+
                             DeviceManager.sharedInstance.storeDeviceToken(deviceToken)
                             print(deviceToken)
                             sendNext(observer, deviceToken)
@@ -68,16 +73,6 @@ class PasscodeViewModel: ViewModel {
                 }
         }
     }
-    
-    func enterPasscode(passcode: String) -> SignalProducer<String, NoError> {
-        
-        return SignalProducer<String, NoError> { observer, disposable in
-            
-            
-            
-        }
-        
-    }
-    
+
     
 }

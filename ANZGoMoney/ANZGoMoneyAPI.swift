@@ -9,7 +9,7 @@
 import Foundation
 import ReactiveCocoa
 
-public class ANZGoMoneyAPI {
+public class ANZGoMoneyAPI: NSObject, NSURLSessionDelegate {
     
     // MARK: - Types
     
@@ -34,6 +34,15 @@ public class ANZGoMoneyAPI {
     
     // MARK: - Properties
     
+    public func URLSession(session: NSURLSession, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void) {
+        
+        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust{
+            let credential = NSURLCredential(forTrust: challenge.protectionSpace.serverTrust!)
+            completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential,credential);
+        }
+        
+    }
+    
     private let APIKey: String
     
     public var ibSessionId: String? {
@@ -54,7 +63,8 @@ public class ANZGoMoneyAPI {
 //        cs.cookieAcceptPolicy = NSHTTPCookieAcceptPolicy.Always
 //        cs.cookies
 //        urlSessionConfiguration.HTTPCookieSt
-        let urlSession = NSURLSession(configuration: urlSessionConfiguration)
+        let urlSession = NSURLSession(configuration: urlSessionConfiguration, delegate: self, delegateQueue: nil)
+        
         return urlSession
     }()
     
@@ -62,9 +72,9 @@ public class ANZGoMoneyAPI {
     
     // MARK: - Initializers
     
-    public init(APIKey: String = "19a20168-a831-4bae-bde3-7c5955ce816c", URLSession: NSURLSession = NSURLSession.sharedSession()) {
+    public init(APIKey: String = "19a20168-a831-4bae-bde3-7c5955ce816c") {
         self.APIKey = APIKey
-        self.urlSession = URLSession
+        super.init()
     }
     
     // MARK: - Functions
@@ -177,6 +187,12 @@ public class ANZGoMoneyAPI {
                 request.allHTTPHeaderFields = httpHeaders
                 
                 let task = urlSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                    
+                    if let error = error {
+                        NSLog("%@", error)
+                    }
+                    
+                    print(error)
                     
                     do {
                         if error != nil {
@@ -355,3 +371,14 @@ public class ANZGoMoneyAPI {
         }
     }
 }
+
+
+/*
+
+code = userAlreadyHasASession;
+devDescription = "User is attempting to login with an currently open Session";
+httpStatus = 400;
+serverDateTime = "2015-10-17T00:42:11.193+1300";
+sinceVersion = 5;
+
+*/

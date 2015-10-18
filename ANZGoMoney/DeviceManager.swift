@@ -23,7 +23,7 @@ public struct DeviceToken {
 
 public class DeviceManager {
     
-    let keychain = Keychain(service: "com.uo.gomoney.device-token", accessGroup: "DQA7HX6GV3.com.wtsnz.ANZGoMoney.shared").accessibility(.AfterFirstUnlock)
+    public let keychain = Keychain(service: "com.uo.gomoney.device-token", accessGroup: "DQA7HX6GV3.com.wtsnz.ANZGoMoney.shared").accessibility(.AfterFirstUnlock)
 
     private struct Shared {
         static var instance = DeviceManager()

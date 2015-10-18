@@ -10,14 +10,22 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="QuickBalance" customModuleProvider="target">
                     <items>
-                        <label width="136" height="48.5" alignment="left" text="Label" numberOfLines="0" id="Uz2-RQ-ze7"/>
-                        <button width="1" alignment="left" title="Button" id="i9r-sJ-peD">
+                        <label width="136" height="25.5" alignment="left" text="Label" numberOfLines="0" id="Uz2-RQ-ze7"/>
+                        <button width="1" alignment="left" title="Reload" id="i9r-sJ-peD">
                             <connections>
                                 <action selector="touchedRefresh" destination="AgC-eL-Hgc" id="QQt-ws-O2n"/>
                             </connections>
                         </button>
+                        <table alignment="left" id="BqC-4J-8DQ">
+                            <items>
+                                <tableRow id="awl-Di-DV2">
+                                    <group key="rootItem" width="1" alignment="left" id="5CX-4c-12P"/>
+                                </tableRow>
+                            </items>
+                        </table>
                     </items>
                     <connections>
+                        <outlet property="table" destination="BqC-4J-8DQ" id="7Vj-8P-yFy"/>
                         <outlet property="textLabel" destination="Uz2-RQ-ze7" id="SKK-gP-jUs"/>
                     </connections>
                 </controller>

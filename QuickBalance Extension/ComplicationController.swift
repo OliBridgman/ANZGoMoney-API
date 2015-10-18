@@ -7,9 +7,12 @@
 //
 
 import ClockKit
+import ReactiveCocoa
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
+    let api = ANZGoMoneyAPI()
+    var text = "Loading..."
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirectionsForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void) {
@@ -35,14 +38,23 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         let template = defaultTemplate()
         let date = NSDate()
         
-        template.textProvider = CLKSimpleTextProvider(text: "MAIN: $1,234.56")
+        guard let _ = DeviceManager.sharedInstance.retrieveDeviceToken() else {
+            
+            template.textProvider = CLKSimpleTextProvider(text: "FAILED")
+            
+            handler(CLKComplicationTimelineEntry(date: date, complicationTemplate: template))
+            
+            return
+        }
         
+        template.textProvider = CLKSimpleTextProvider(text: self.text)
         handler(CLKComplicationTimelineEntry(date: date, complicationTemplate: template))
+        
     }
         
     func defaultTemplate() -> CLKComplicationTemplateUtilitarianLargeFlat {
         let placeholder = CLKComplicationTemplateUtilitarianLargeFlat()
-        placeholder.textProvider = CLKSimpleTextProvider(text: "")
+        placeholder.textProvider = CLKSimpleTextProvider(text: "Loading...t")
         return placeholder
     }
     
@@ -60,7 +72,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
         // Call the handler with the date when you would next like to be given the opportunity to update your complication content
-        handler(nil);
+        
+        let date = NSDate().dateByAddingTimeInterval(60*5)
+        handler(date);
     }
     
     // MARK: - Placeholder Templates
@@ -73,6 +87,36 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         }
         
         handler(nil)
+    }
+    
+    
+    func requestedUpdateDidBegin() {
+        
+        guard let deviceToken = DeviceManager.sharedInstance.retrieveDeviceToken() else {
+            return
+        }
+        
+        self.api.authenticatedFetchAccountsSignal(deviceToken.deviceToken, pin2: deviceToken.passcode).observeOn(UIScheduler()).startWithNext { accounts in
+            
+            let account = accounts.filter { $0.nickname == "MAIN" }
+            
+            if let account = account.first {
+                
+                DeviceManager.sharedInstance.keychain[""] = "MAIN: $\(account.balance)"
+                
+                self.text = "MAIN: $\(account.balance)"
+            } else {
+                self.text = "FAILED"
+            }
+
+            let server = CLKComplicationServer.sharedInstance()
+            
+            for comp in (server.activeComplications) {
+                server.reloadTimelineForComplication(comp)
+            }
+            
+        }
+        
     }
     
 }
